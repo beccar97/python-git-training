@@ -1,3 +1,6 @@
+from typing import List
+
+
 def compute_fibonacci_number(position: int) -> int:
     i = 1
     j = 1
@@ -13,3 +16,8 @@ def compute_fibonacci_number(position: int) -> int:
         current_position += 1
 
     return j
+
+
+def compute_fibonacci_list(start: int, end: int) -> List[int]:
+    input_list = range(start, end + 1)
+    return [compute_fibonacci_number(x) for x in input_list]
