@@ -1,4 +1,7 @@
-def compute_fibonacci_number(position: int) -> int:
+def compute_fibonacci_number(position: int, recursion: bool = False) -> int:
+    if recursion:
+        return recursive_fibonacci(1, 1, position - 2)
+
     i = 1
     j = 1
 
@@ -13,3 +16,14 @@ def compute_fibonacci_number(position: int) -> int:
         current_position += 1
 
     return j
+
+
+def recursive_fibonacci(previous: int, current: int, steps_left: int) -> int:
+    if steps_left < 0:
+        return 1
+
+    match steps_left:
+        case 0:
+            return current
+        case _:
+            return recursive_fibonacci(current, previous + current, steps_left - 1)
